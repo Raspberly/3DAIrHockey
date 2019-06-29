@@ -59,7 +59,7 @@ public class ResultWindow : MonoBehaviour
         onResult = true;
         if(systemController.GetSTATE() != GAME.STATE.RESULT)
         {
-            systemController.SetSTATE(GAME.STATE.RESULT);
+            //systemController.SetSTATE(GAME.STATE.RESULT);
         }
         winImage.transform.DOScale(new Vector3(1, 1), 0.5f);
     }
@@ -69,7 +69,7 @@ public class ResultWindow : MonoBehaviour
         onResult = true;
         if(systemController.GetSTATE() != GAME.STATE.RESULT)
         {
-            systemController.SetSTATE(GAME.STATE.RESULT);
+            //systemController.SetSTATE(GAME.STATE.RESULT);
         }
         loseImage.transform.DOScale(new Vector3(1, 1), 0.5f);
     }

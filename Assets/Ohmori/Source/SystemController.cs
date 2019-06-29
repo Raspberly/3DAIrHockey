@@ -46,6 +46,13 @@ public class SystemController : MonoBehaviour
     //ゲームの時間
     public const float GAME_TIME = 180;
 
+    //玉
+    [SerializeField]
+    private GameObject ball;
+    //玉の出現場所
+    [SerializeField]
+    private GameObject createPoint;
+
     /// <summary>
     /// 初期化
     /// </summary>
@@ -80,6 +87,7 @@ public class SystemController : MonoBehaviour
             if (startTime > 1.5f)
             {
                 gameState = GAME.STATE.GAME;
+                Instantiate(ball, createPoint.transform);
             }
         }
 
@@ -109,12 +117,15 @@ public class SystemController : MonoBehaviour
         if (pointGetTarget==GAME.TARGET.ME)
         {
             point[(int)GetMePlayer()] += 1;
+            if (point[(int)GetMePlayer()] >= 3) SetSTATE(GAME.STATE.RESULT);
         }
         //相手にポイントが入った
         else
         {
             point[(int)GetYouPlayer()] += 1;
+            if (point[(int)GetYouPlayer()] >= 3) SetSTATE(GAME.STATE.RESULT);
         }
+        
     }
 
     /// <summary>

@@ -45,7 +45,7 @@ public class Goal : MonoBehaviour
     //再復帰
     void ReStart()
     {
-        Instantiate(ball, createPoint.transform);
+        if(systemController.GetSTATE()==GAME.STATE.GAME) Instantiate(ball, createPoint.transform);
     }
     
 }

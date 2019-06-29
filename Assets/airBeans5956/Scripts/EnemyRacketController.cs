@@ -9,6 +9,10 @@ public class EnemyRacketController : MonoBehaviour
     private Vector3 _moveDistination = Vector3.zero;
     [SerializeField]
     private float _moveSec = 0.15f;
+
+    [SerializeField]
+    private SystemController systemController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +24,8 @@ public class EnemyRacketController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (systemController.GetSTATE()!=GAME.STATE.GAME) return;
+
         var rate = Time.deltaTime / _moveSec;
         transform.position = Vector3.Lerp(this.transform.position, _moveDistination, rate);
     }
