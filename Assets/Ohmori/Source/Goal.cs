@@ -18,6 +18,9 @@ public class Goal : MonoBehaviour
     //ボール
     [SerializeField]
     private GameObject ball;
+    //ボール作成場所
+    [SerializeField]
+    private GameObject createPoint;
 
     void Update()
     {
@@ -29,8 +32,7 @@ public class Goal : MonoBehaviour
     /// </summary>
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hit:"+ other.transform.name);
-        if (other.tag =="ball")
+        if (other.transform.tag == "Ball")
         {
             Instantiate(outParticle, other.gameObject.transform);
             Destroy(other.gameObject);
@@ -43,7 +45,7 @@ public class Goal : MonoBehaviour
     //再復帰
     void ReStart()
     {
-        Instantiate(ball);
+        Instantiate(ball, createPoint.transform);
     }
     
 }
