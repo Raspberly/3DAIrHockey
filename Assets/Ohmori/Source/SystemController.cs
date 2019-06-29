@@ -13,11 +13,18 @@ namespace GAME
     };
 
     //プレイヤーの番号
-    public enum PLAYER
+    public enum PLAYER_ID
     {
         PLAYER_1 = 0,
         PLAYER_2 = 1
     };
+
+    //誰が
+    public enum TARGET
+    {
+        YOU,
+        ME
+    }
 }
 
 /// <summary>
@@ -31,8 +38,11 @@ public class SystemController : MonoBehaviour
     private float time = 0.0f;
     //ゲームの状態
     private GAME.STATE gameState = GAME.STATE.START;
+    //自分のプレイヤーID
+    private GAME.PLAYER_ID playerId = GAME.PLAYER_ID.PLAYER_1;
+
     //ゲームの時間
-    public const float GAME_TIME = 180;
+    public const float GAME_TIME = 10;
 
     /// <summary>
     /// 初期化
@@ -47,8 +57,8 @@ public class SystemController : MonoBehaviour
     /// </summary>
     public void RetryInit()
     {
-        point[(int)GAME.PLAYER.PLAYER_1] = 0;
-        point[(int)GAME.PLAYER.PLAYER_2] = 0;
+        point[(int)GAME.PLAYER_ID.PLAYER_1] = 0;
+        point[(int)GAME.PLAYER_ID.PLAYER_2] = 0;
 
         time = GAME_TIME;
         //TODO フェードインがないのでゲーム状態にする
@@ -75,4 +85,43 @@ public class SystemController : MonoBehaviour
     /// </summary>
     /// <returns>現在のゲーム時間を返す</returns>
     public float GetGameTime() { return time; }
+
+    /// <summary>
+    /// ポイントの獲得
+    /// </summary>
+    /// <param name="pointGetTarget">ポイントを獲得したユーザー</param>
+    public void SetPoint(GAME.TARGET pointGetTarget)
+    {
+        //自分にポイントが入った
+        if (pointGetTarget==GAME.TARGET.ME)
+        {
+            point[(int)GetMePlayer()] += 1;
+        }
+        //相手にポイントが入った
+        else
+        {
+            point[(int)GetYouPlayer()] += 1;
+        }
+    }
+
+    /// <summary>
+    /// 自分のプレイヤーIDを返す
+    /// </summary>
+    /// <returns></returns>
+    public GAME.PLAYER_ID GetMePlayer(){ return playerId; }
+
+    /// <summary>
+    /// 相手のプレイヤーIDを返す
+    /// </summary>
+    /// <returns></returns>
+    public GAME.PLAYER_ID GetYouPlayer()
+    {
+        if (playerId == GAME.PLAYER_ID.PLAYER_2) return GAME.PLAYER_ID.PLAYER_1;
+        return GAME.PLAYER_ID.PLAYER_2;
+    }
+
+    /// <summary>
+    /// 今の自分のポイント
+    /// </summary>
+    public int GetMePoint(){ return point[(int)GetMePlayer()]; }
 }
