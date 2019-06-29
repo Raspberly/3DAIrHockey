@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3366430733882627856
+--- !u!1 &3860964026787476071
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1953790530788850782}
-  - component: {fileID: 5233535936239202215}
-  - component: {fileID: 8050784734671200682}
-  - component: {fileID: 8348757100155063762}
-  - component: {fileID: 7518679723420561486}
-  - component: {fileID: 8670104022934559401}
+  - component: {fileID: 5220694324492242829}
+  - component: {fileID: 8572262314897700379}
+  - component: {fileID: 962004433608372654}
+  - component: {fileID: 4142425725400166949}
+  - component: {fileID: 3331811423574848062}
   m_Layer: 0
-  m_Name: Ball
-  m_TagString: Ball
+  m_Name: Goal
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1953790530788850782
+--- !u!4 &5220694324492242829
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3366430733882627856}
+  m_GameObject: {fileID: 3860964026787476071}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 5, z: -23.07}
+  m_LocalScale: {x: 50, y: 10, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5233535936239202215
+--- !u!33 &8572262314897700379
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3366430733882627856}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8050784734671200682
+  m_GameObject: {fileID: 3860964026787476071}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &962004433608372654
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3366430733882627856}
+  m_GameObject: {fileID: 3860964026787476071}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -60,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cae58b01c8c96456cbcffa70c6f941d5, type: 2}
+  - {fileID: 2100000, guid: 4e454cef268f3de4996c705917ed31d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,45 +79,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &8348757100155063762
-SphereCollider:
+--- !u!65 &4142425725400166949
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3366430733882627856}
+  m_GameObject: {fileID: 3860964026787476071}
   m_Material: {fileID: 13400000, guid: 9dde642f40d1d4ba1a7339716e996490, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &7518679723420561486
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3366430733882627856}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 2
---- !u!114 &8670104022934559401
+--- !u!114 &3331811423574848062
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3366430733882627856}
+  m_GameObject: {fileID: 3860964026787476071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 398b061c665b749fd9c116e5d1803258, type: 3}
+  m_Script: {fileID: 11500000, guid: b240658be60553b4686bffd633cb69bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeedPerSec: 1
+  pointGetTarget: 0
+  systemController: {fileID: 0}
+  outParticle: {fileID: 1583678453464882154, guid: eeef30bb530913348afb190fe6afb4b4,
+    type: 3}
