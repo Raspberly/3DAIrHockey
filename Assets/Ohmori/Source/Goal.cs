@@ -15,18 +15,37 @@ public class Goal : MonoBehaviour
     //玉がゴールに触れた際のパーティクル
     [SerializeField]
     private GameObject outParticle;
+    //ボール
+    [SerializeField]
+    private GameObject ball;
+    //ボール作成場所
+    [SerializeField]
+    private GameObject createPoint;
+
+    void Update()
+    {
+
+    }
 
     /// <summary>
     /// 当たり判定
     /// </summary>
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag =="ball")
+        if (other.transform.tag == "Ball")
         {
             Instantiate(outParticle, other.gameObject.transform);
             Destroy(other.gameObject);
             //ポイントを加算
             systemController.SetPoint(pointGetTarget);
+            ReStart();
         }
     }
+
+    //再復帰
+    void ReStart()
+    {
+        Instantiate(ball, createPoint.transform);
+    }
+    
 }

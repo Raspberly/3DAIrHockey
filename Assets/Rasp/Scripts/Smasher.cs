@@ -23,8 +23,8 @@ public class Smasher : MonoBehaviour
     void Update()
     {
         distance = Vector3.Distance(touchR.position, touchL.position);
-        debugText.text = distance.ToString();
-        Debug.Log(distance);
+        //debugText.text = distance.ToString();
+        //Debug.Log(distance);
         smaherTransform.position = (touchR.transform.position + touchL.transform.position) * 0.5f;
         smaherTransform.rotation = Quaternion.Lerp(touchR.rotation, touchL.rotation, 0.5f);
         //smaherTransform.rotation.eulerAngles = new Vector3(touchR.transform.rotation.eulerAngles + touchL.transform.rotation.eulerAngles) * 0.5f;
