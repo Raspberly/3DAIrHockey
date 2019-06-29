@@ -36,6 +36,8 @@ public class SystemController : MonoBehaviour
     private int[] point=new int[2];
     //ゲームの残り時間
     private float time = 0.0f;
+    //ゲームの残り時間
+    private float startTime = 0.0f;
     //ゲームの状態
     private GAME.STATE gameState = GAME.STATE.START;
     //自分のプレイヤーID
@@ -62,7 +64,9 @@ public class SystemController : MonoBehaviour
 
         time = GAME_TIME;
         //TODO フェードインがないのでゲーム状態にする
-        gameState = GAME.STATE.GAME;
+        gameState = GAME.STATE.START;
+
+        startTime = 0;
     }
 
     /// <summary>
@@ -70,6 +74,15 @@ public class SystemController : MonoBehaviour
     /// </summary>
     void Update()
     {
+        if(gameState == GAME.STATE.START)
+        {
+            startTime += 1.0f * Time.deltaTime;
+            if (startTime > 1.5f)
+            {
+                gameState = GAME.STATE.GAME;
+            }
+        }
+
         if (gameState != GAME.STATE.GAME) return;
 
         time -= 1.0f * Time.deltaTime;
