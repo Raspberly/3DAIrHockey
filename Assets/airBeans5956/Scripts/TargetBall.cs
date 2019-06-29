@@ -6,9 +6,12 @@ public class TargetBall : MonoBehaviour
 {
     private Rigidbody _rigidbody;
 
-    private bool _enableRefrectBoost = true;
+    public bool _enableRefrectBoost = true;
 
     public float moveSpeedPerSec = 5.0f;
+
+    public float accelRateOnBounce = 0.001f;
+    public float rotateRangeOnBounce = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +32,11 @@ public class TargetBall : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision) {
-        if(!this._enableRefrectBoost) { return; }
-        this._rigidbody.velocity = _rigidbody.velocity * 1.01f;
+        if (this._enableRefrectBoost) {
+            this._rigidbody.velocity = _rigidbody.velocity * (1f + accelRateOnBounce);
+        }
+        Vector3 rotateDegree = new Vector3(
+            Random.Range(-rotateRangeOnBounce, rotateRangeOnBounce), Random.Range(-rotateRangeOnBounce, rotateRangeOnBounce), Random.Range(-rotateRangeOnBounce, rotateRangeOnBounce));
+        this._rigidbody.velocity = Quaternion.Euler(rotateDegree) * this._rigidbody.velocity;
     }
 }
