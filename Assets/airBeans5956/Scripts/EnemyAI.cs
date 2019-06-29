@@ -18,6 +18,7 @@ public class EnemyAI : MonoBehaviour
     {
         _racketController = this.GetComponent<EnemyRacketController>();
         StartCoroutine(Think());
+        StartCoroutine(RefreshThinkingWithInterval());
     }
 
     // Update is called once per frame
@@ -38,13 +39,14 @@ public class EnemyAI : MonoBehaviour
                 tmpPos = _receivedPositions[idx];
             }
             Debug.Log(totalMovements);
-            thinkInterval = totalMovements * 0.0002f;
+            thinkInterval = totalMovements * 0.01f;
         }
     }
 
     public void ResetThinkInterval() {
         thinkInterval = 0f;
         _receivedPositions.Clear();
+        Debug.Log("Refresh!");
     }
 
     private IEnumerator Think() {
@@ -65,6 +67,15 @@ public class EnemyAI : MonoBehaviour
 
         yield return new WaitForSeconds(thinkInterval);
         StartCoroutine(Think());
+    }
+
+    private IEnumerator RefreshThinkingWithInterval() {
+        ResetThinkInterval();
+
+        var refreshRange = Random.Range(5f, 25f);
+        yield return new WaitForSeconds(refreshRange);
+
+        StartCoroutine(RefreshThinkingWithInterval());
     }
 
 }
