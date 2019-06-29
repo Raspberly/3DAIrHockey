@@ -59,6 +59,8 @@ public class SystemController : MonoBehaviour
     private EnemyRacketController enemy;
     [SerializeField]
     private EnemyAI enemyAI;
+    [SerializeField]
+    private ResultWindow resultWindow;
 
     /// <summary>
     /// 初期化
@@ -82,6 +84,8 @@ public class SystemController : MonoBehaviour
 
         startTime = 0;
         endTime = 0;
+
+        resultWindow.Reset();
     }
 
     /// <summary>

@@ -74,4 +74,12 @@ public class ResultWindow : MonoBehaviour
         loseImage.transform.DOScale(new Vector3(1, 1), 0.5f);
     }
 
+    public void Reset()
+    {
+        onResult = false;
+        winImage.transform.localScale = new Vector3(0,0,0);
+        loseImage.transform.localScale = new Vector3(0, 0, 0);
+
+    }
+
 }
