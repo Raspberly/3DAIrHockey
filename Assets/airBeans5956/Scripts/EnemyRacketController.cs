@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyAI))]
 public class EnemyRacketController : MonoBehaviour
 {
-
+    private EnemyAI _selfAI;
     private Vector3 _moveDistination = Vector3.zero;
-    public float moveTime = 0.5f;
+    [SerializeField]
+    private float _moveSec = 0.15f;
     // Start is called before the first frame update
     void Start()
     {
+        _selfAI = GetComponent<EnemyAI>();
         var selfPos = this.transform.position;
         _moveDistination = new Vector3(0f, 0f, selfPos.z);
     }
@@ -17,7 +20,7 @@ public class EnemyRacketController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var rate = Time.deltaTime / moveTime;
+        var rate = Time.deltaTime / _moveSec;
         transform.position = Vector3.Lerp(this.transform.position, _moveDistination, rate);
     }
 
@@ -25,5 +28,16 @@ public class EnemyRacketController : MonoBehaviour
         //
         _moveDistination.x = x;
         _moveDistination.y = y;
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        if(other.gameObject.tag == "Ball") {
+            _selfAI.OnSuccessReceiveShot();
+        }
+    }
+
+    //ゴールを決められたら呼んでもらう
+    private void OnTakenGoal() {
+        _selfAI.ResetThinkInterval();
     }
 }
