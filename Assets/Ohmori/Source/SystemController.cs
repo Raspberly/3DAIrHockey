@@ -23,14 +23,14 @@ namespace GAME
 /// <summary>
 /// ゲーム自体を制御
 /// </summary>
-public class GameController : MonoBehaviour
+public class SystemController : MonoBehaviour
 {
     //獲得したポイント
     private int[] point=new int[2];
     //ゲームの残り時間
     private float time = 0.0f;
     //ゲームの状態
-
+    private GAME.STATE gameState = GAME.STATE.START;
     //ゲームの時間
     public const float GAME_TIME = 180;
 
@@ -39,10 +39,20 @@ public class GameController : MonoBehaviour
     /// </summary>
     void Start()
     {
+        RetryInit();
+    }
+
+    /// <summary>
+    /// 再挑戦の初期化
+    /// </summary>
+    public void RetryInit()
+    {
         point[(int)GAME.PLAYER.PLAYER_1] = 0;
         point[(int)GAME.PLAYER.PLAYER_2] = 0;
 
         time = GAME_TIME;
+        //TODO フェードインがないのでゲーム状態にする
+        gameState = GAME.STATE.GAME;
     }
 
     /// <summary>
@@ -50,9 +60,14 @@ public class GameController : MonoBehaviour
     /// </summary>
     void Update()
     {
+        if (gameState != GAME.STATE.GAME) return;
+
         time -= 1.0f * Time.deltaTime;
 
-
+        if (time <= 0.0f){
+            gameState = GAME.STATE.RESULT;
+            time = 0.0f;
+        }
     }
 
     /// <summary>
