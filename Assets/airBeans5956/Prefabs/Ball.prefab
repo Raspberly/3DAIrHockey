@@ -122,7 +122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398b061c665b749fd9c116e5d1803258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enableRefrectBoost: 1
   moveSpeedPerSec: 5
+  accelRateOnBounce: 0.001
+  rotateRangeOnBounce: 5
 --- !u!1001 &1047747768
 PrefabInstance:
   m_ObjectHideFlags: 0

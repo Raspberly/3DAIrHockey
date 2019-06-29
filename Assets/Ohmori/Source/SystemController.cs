@@ -38,6 +38,7 @@ public class SystemController : MonoBehaviour
     private float time = 0.0f;
     //ゲームの残り時間
     private float startTime = 0.0f;
+    private float endTime = 0.0f;
     //ゲームの状態
     private GAME.STATE gameState = GAME.STATE.START;
     //自分のプレイヤーID
@@ -52,6 +53,12 @@ public class SystemController : MonoBehaviour
     //玉の出現場所
     [SerializeField]
     private GameObject createPoint;
+    [SerializeField]
+    private GameObject retry;
+    [SerializeField]
+    private EnemyRacketController enemy;
+    [SerializeField]
+    private EnemyAI enemyAI;
 
     /// <summary>
     /// 初期化
@@ -74,6 +81,7 @@ public class SystemController : MonoBehaviour
         gameState = GAME.STATE.START;
 
         startTime = 0;
+        endTime = 0;
     }
 
     /// <summary>
@@ -81,13 +89,24 @@ public class SystemController : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if(gameState == GAME.STATE.START)
+        if (gameState == GAME.STATE.START)
         {
             startTime += 1.0f * Time.deltaTime;
             if (startTime > 1.5f)
             {
                 gameState = GAME.STATE.GAME;
                 Instantiate(ball, createPoint.transform);
+                enemy.StartAction();
+                enemyAI.StartAction();
+            }
+        }
+
+        if (gameState == GAME.STATE.RESULT)
+        {
+            endTime += 1.0f * Time.deltaTime;
+            if (endTime > 3f)
+            {
+                retry.SetActive(true);
             }
         }
 

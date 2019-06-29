@@ -14,7 +14,7 @@ public class EnemyAI : MonoBehaviour
     private List<Vector2> _receivedPositions = new List<Vector2>();
 
     // Start is called before the first frame update
-    void Start()
+    public void StartAction()
     {
         _racketController = this.GetComponent<EnemyRacketController>();
         StartCoroutine(Think());

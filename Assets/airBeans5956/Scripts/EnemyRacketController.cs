@@ -14,7 +14,7 @@ public class EnemyRacketController : MonoBehaviour
     private SystemController systemController;
 
     // Start is called before the first frame update
-    void Start()
+    public void StartAction()
     {
         _selfAI = GetComponent<EnemyAI>();
         var selfPos = this.transform.position;
