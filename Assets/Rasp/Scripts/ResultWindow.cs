@@ -26,12 +26,12 @@ public class ResultWindow : MonoBehaviour
             //マッチポイントの場合
             if(systemController.GetPoint((int) GAME.TARGET.YOU) >= 3)
             {
-                Lose();
+                Win();
                 return;
             }
             else if(systemController.GetPoint((int) GAME.TARGET.ME) >= 3)
             {
-                Win();
+                Lose();
                 return;
             }
 
@@ -41,11 +41,11 @@ public class ResultWindow : MonoBehaviour
             {
                 if(systemController.GetPoint((int)GAME.TARGET.YOU) >= systemController.GetPoint((int) GAME.TARGET.ME))
                 {
-                    Lose();
+                    Win();
                 }
                 else 
                 {
-                    Win();
+                    Lose();
                 }
             }
 
