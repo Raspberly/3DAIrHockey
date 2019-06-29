@@ -42,7 +42,7 @@ public class SystemController : MonoBehaviour
     private GAME.PLAYER_ID playerId = GAME.PLAYER_ID.PLAYER_1;
 
     //ゲームの時間
-    public const float GAME_TIME = 10;
+    public const float GAME_TIME = 180;
 
     /// <summary>
     /// 初期化
