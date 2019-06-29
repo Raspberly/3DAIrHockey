@@ -827,6 +827,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: fdc1ede60cfc1d34598935fcedb63874, type: 3}
   source: {fileID: 861318745}
+--- !u!114 &861318747 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3572047458948855108, guid: aac209a6612d543049e93a66b23bf09d,
+    type: 3}
+  m_PrefabInstance: {fileID: 861318743}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861318744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb7c422c3168437290be416d7c42423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &861318748 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3572047458948855107, guid: aac209a6612d543049e93a66b23bf09d,
+    type: 3}
+  m_PrefabInstance: {fileID: 861318743}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861318744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d1445c35ab04ecd8f88945e4e2c3aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &883251716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,9 +1313,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 3366430733882627856, guid: 92ea968627d164f0fb7f6338edf60c54, type: 3}
   createPoint: {fileID: 888742710}
-  retry: {fileID: 0}
-  enemy: {fileID: 0}
-  enemyAI: {fileID: 0}
+  retry: {fileID: 1665009213}
+  enemy: {fileID: 861318748}
+  enemyAI: {fileID: 861318747}
 --- !u!82 &1297414685
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2054,16 +2078,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -20
       objectReference: {fileID: 0}
-    - target: {fileID: 4529551080783426896, guid: df442f1df60d1d04493afed6a8a58f94,
-        type: 3}
-      propertyPath: systemController
-      value: 
-      objectReference: {fileID: 1297414684}
     - target: {fileID: 4529551082366645444, guid: df442f1df60d1d04493afed6a8a58f94,
         type: 3}
       propertyPath: _trackingOriginType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4529551080783426896, guid: df442f1df60d1d04493afed6a8a58f94,
+        type: 3}
+      propertyPath: systemController
+      value: 
+      objectReference: {fileID: 1297414684}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df442f1df60d1d04493afed6a8a58f94, type: 3}
 --- !u!1 &1665009210 stripped
@@ -2182,6 +2206,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1665009213 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2190213322865255437, guid: df442f1df60d1d04493afed6a8a58f94,
+    type: 3}
+  m_PrefabInstance: {fileID: 1665009209}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1875754317
 GameObject:
   m_ObjectHideFlags: 0
