@@ -137,4 +137,12 @@ public class SystemController : MonoBehaviour
     /// 今の自分のポイント
     /// </summary>
     public int GetMePoint(){ return point[(int)GetMePlayer()]; }
+
+    public int GetPoint (int num) { return point[num]; }
+
+    /// <summary>
+    /// 今のゲームの状態
+    /// </summary>
+    public GAME.STATE GetSTATE () { return gameState; }
+    public void SetSTATE (GAME.STATE state) { gameState = state; }
 }
